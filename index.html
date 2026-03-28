@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grúas V.C.A. | Servicio 24 Horas | La Serena & Coquimbo</title>
+  <meta name="description" content="Grúas V.C.A. — Servicio de remolque y auxilio vehicular en La Serena, Coquimbo y alrededores. Disponible las 24 horas, los 365 días del año."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --azul:       #0a1f5c;
+      --azul-medio: #1a3a8f;
+      --amarillo:   #f5c400;
+      --amarillo2:  #ffd700;
+      --blanco:     #ffffff;
+      --gris-claro: #f4f6fb;
+      --gris-texto: #4a5568;
+      --sombra:     0 4px 24px rgba(10,31,92,0.13);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--blanco);
+      color: var(--azul);
+      overflow-x: hidden;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--amarillo);
+      text-align: center;
+      padding: 8px 16px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--azul);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--azul);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--amarillo);
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+
+    .nav-logo span { color: var(--blanco); }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--blanco);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--amarillo); }
+
+    .nav-cta {
+      background: var(--amarillo);
+      color: var(--azul) !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-weight: 700 !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--amarillo2) !important;
+      transform: translateY(-1px);
+      color: var(--azul) !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--azul) 60%, var(--azul-medio) 100%);
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      padding: 60px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at 80% 50%, rgba(245,196,0,0.10) 0%, transparent 60%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 40px,
+          rgba(255,255,255,0.015) 40px,
+          rgba(255,255,255,0.015) 41px
+        );
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 620px;
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--amarillo);
+      color: var(--azul);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 3px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      color: var(--blanco);
+      line-height: 0.95;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 em {
+      color: var(--amarillo);
+      font-style: normal;
+    }
+
+    .hero-sub {
+      color: rgba(255,255,255,0.78);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 36px;
+      max-width: 500px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--amarillo);
+      color: var(--azul);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 14px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: transform 0.18s, box-shadow 0.18s;
+      box-shadow: 0 4px 16px rgba(245,196,0,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(245,196,0,0.45);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--blanco);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 14px 30px;
+      border-radius: 5px;
+      border: 2px solid rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: border-color 0.18s, background 0.18s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--amarillo);
+      background: rgba(245,196,0,0.08);
+    }
+
+    .hero-visual {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 45%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .hero-truck-svg {
+      width: 90%;
+      max-width: 520px;
+      opacity: 0.12;
+      filter: invert(1);
+    }
+
+    /* ── URGENCIA ── */
+    .urgencia {
+      background: var(--amarillo);
+      padding: 22px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .urgencia-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--azul);
+      letter-spacing: 0.03em;
+    }
+
+    .urgencia a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--azul);
+      color: var(--blanco);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+      padding: 10px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .urgencia a:hover { background: var(--azul-medio); }
+
+    /* ── SECCIONES ── */
+    section { padding: 72px 5%; }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amarillo);
+      background: var(--azul);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 3px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--azul);
+      letter-spacing: 0.03em;
+      margin-bottom: 10px;
+      line-height: 1.05;
+    }
+
+    .section-sub {
+      color: var(--gris-texto);
+      font-size: 1.05rem;
+      max-width: 560px;
+      line-height: 1.65;
+      margin-bottom: 48px;
+    }
+
+    /* ── SERVICIOS ── */
+    #servicios { background: var(--gris-claro); }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .servicio-card {
+      background: var(--blanco);
+      border-radius: 10px;
+      padding: 32px 28px;
+      box-shadow: var(--sombra);
+      border-top: 4px solid var(--amarillo);
+      transition: transform 0.22s, box-shadow 0.22s;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .servicio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 36px rgba(10,31,92,0.16);
+    }
+
+    .servicio-icon {
+      font-size: 2.4rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .servicio-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+    }
+
+    .servicio-card p {
+      color: var(--gris-texto);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ── ZONAS ── */
+    #zonas { background: var(--azul); }
+
+    #zonas .section-title { color: var(--blanco); }
+    #zonas .section-sub { color: rgba(255,255,255,0.7); }
+    #zonas .section-label { background: var(--amarillo); color: var(--azul); }
+
+    .zonas-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .zona-tag {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--blanco);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      padding: 10px 20px;
+      border-radius: 50px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .zona-tag:hover {
+      background: var(--amarillo);
+      border-color: var(--amarillo);
+      color: var(--azul);
+    }
+
+    /* ── POR QUÉ ELEGIRNOS ── */
+    .razones-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      text-align: center;
+    }
+
+    .razon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .razon-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: var(--amarillo);
+      line-height: 1;
+    }
+
+    .razon h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--azul);
+      letter-spacing: 0.04em;
+    }
+
+    .razon p {
+      color: var(--gris-texto);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* ── CONTACTO ── */
+    #contacto { background: var(--gris-claro); }
+
+    .contacto-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .contacto-info h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--azul);
+      margin-bottom: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    .contacto-dato {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .contacto-dato-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contacto-dato-text strong {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gris-texto);
+      margin-bottom: 2px;
+    }
+
+    .contacto-dato-text span {
+      font-size: 1.05rem;
+      color: var(--azul);
+      font-weight: 600;
+    }
+
+    .contacto-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #25D366;
+      color: var(--blanco);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 16px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: transform 0.18s, box-shadow 0.18s;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.30);
+    }
+
+    .btn-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.40);
+    }
+
+    .btn-llamar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--azul);
+      color: var(--blanco);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 16px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: transform 0.18s, background 0.18s;
+    }
+
+    .btn-llamar:hover {
+      transform: translateY(-2px);
+      background: var(--azul-medio);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--azul);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 5%;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    footer strong {
+      color: var(--amarillo);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.06em;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* ── BOTÓN FLOTANTE WA ── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #25D366;
+      color: var(--blanco);
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.9rem;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+      text-decoration: none;
+      z-index: 999;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: pulse 2.5s infinite;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 32px rgba(37,211,102,0.55);
+      animation: none;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
+      50% { box-shadow: 0 6px 36px rgba(37,211,102,0.70); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero { min-height: auto; padding: 48px 5% 56px; }
+      .hero-visual { display: none; }
+      .contacto-wrapper { grid-template-columns: 1fr; }
+      .urgencia { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">🚛 Servicio disponible las 24 horas — La Serena, Coquimbo y toda la Región</div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Grúas <span>V.C.A.</span></div>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#zonas">Zonas</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto" class="nav-cta">Contactar</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">🕐 Disponible 24/7 · 365 días</span>
+      <h1>Grúas<br><em>V.C.A.</em></h1>
+      <p class="hero-sub">Servicio profesional de remolque y auxilio vehicular en La Serena, Coquimbo y alrededores. Atención rápida, segura y coordinación directa.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/56944025683" class="btn-primary">
+          💬 WhatsApp Ahora
+        </a>
+        <a href="tel:+56944025683" class="btn-secondary">
+          📞 +56 9 4402 5683
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- SVG decorativo grúa -->
+      <svg class="hero-truck-svg" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" fill="white">
+        <rect x="10" y="30" width="110" height="30" rx="4"/>
+        <rect x="120" y="20" width="60" height="40" rx="4"/>
+        <circle cx="40" cy="65" r="10"/>
+        <circle cx="100" cy="65" r="10"/>
+        <circle cx="155" cy="65" r="10"/>
+        <rect x="5" y="25" width="8" height="20" rx="2"/>
+        <rect x="13" y="15" width="3" height="15" rx="1"/>
+        <rect x="13" y="15" width="60" height="3" rx="1"/>
+        <rect x="73" y="15" width="3" height="20" rx="1"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- URGENCIA -->
+  <div class="urgencia">
+    <span class="urgencia-text">🚨 ¿Quedaste en panne o tuviste un accidente? ¡Te ayudamos ahora!</span>
+    <a href="tel:+56944025683">📞 Llamar ya</a>
+  </div>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="section-label">Lo que hacemos</div>
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <p class="section-sub">Soluciones rápidas y confiables para cualquier situación en ruta, con coordinación directa por teléfono o WhatsApp.</p>
+    <div class="servicios-grid">
+      <div class="servicio-card">
+        <span class="servicio-icon">🔧</span>
+        <h3>Remolque por Panne</h3>
+        <p>Asistencia inmediata cuando tu vehículo falla en ruta. Llegamos rápido y te trasladamos al taller de tu preferencia.</p>
+      </div>
+      <div class="servicio-card">
+        <span class="servicio-icon">🚗</span>
+        <h3>Traslado tras Accidente</h3>
+        <p>Retiro y traslado seguro de vehículos involucrados en accidentes. Servicio discreto y coordinado.</p>
+      </div>
+      <div class="servicio-card">
+        <span class="servicio-icon">🏭</span>
+        <h3>Traslado a Taller</h3>
+        <p>Movemos tu vehículo desde donde estés hasta el taller de tu elección, con puntualidad y cuidado garantizados.</p>
+      </div>
+      <div class="servicio-card">
+        <span class="servicio-icon">📦</span>
+        <h3>Fletes Livianos</h3>
+        <p>Traslado de carga liviana y movimientos programados en toda la Región de Coquimbo. Consulta disponibilidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONAS -->
+  <section id="zonas">
+    <div class="section-label">Cobertura</div>
+    <h2 class="section-title">Zonas de Servicio</h2>
+    <p class="section-sub">Cubrimos La Serena, Coquimbo y toda la región. ¿No ves tu localidad? ¡Consúltanos de todas formas!</p>
+    <div class="zonas-grid">
+      <span class="zona-tag">📍 La Serena</span>
+      <span class="zona-tag">📍 Coquimbo</span>
+      <span class="zona-tag">📍 Pan de Azúcar</span>
+      <span class="zona-tag">📍 Ovalle</span>
+      <span class="zona-tag">📍 Tongoy</span>
+      <span class="zona-tag">📍 Andacollo</span>
+      <span class="zona-tag">📍 Vicuña</span>
+      <span class="zona-tag">📍 Illapel</span>
+      <span class="zona-tag">📍 Y más...</span>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros">
+    <div class="section-label">Por qué elegirnos</div>
+    <h2 class="section-title">Compromiso y Confianza</h2>
+    <p class="section-sub">Trabajamos con responsabilidad, puntualidad y cuidado del vehículo. Tanto para particulares como para talleres.</p>
+    <div class="razones-grid">
+      <div class="razon">
+        <div class="razon-num">24/7</div>
+        <h4>Siempre Disponibles</h4>
+        <p>Los 365 días del año, a cualquier hora. Cuando más nos necesitas, ahí estamos.</p>
+      </div>
+      <div class="razon">
+        <div class="razon-num">⚡</div>
+        <h4>Respuesta Rápida</h4>
+        <p>Coordinación directa por WhatsApp o llamada. Sin demoras ni rodeos.</p>
+      </div>
+      <div class="razon">
+        <div class="razon-num">🛡️</div>
+        <h4>Tu Vehículo Seguro</h4>
+        <p>Manejamos cada vehículo con el máximo cuidado. Tu tranquilidad es nuestra prioridad.</p>
+      </div>
+      <div class="razon">
+        <div class="razon-num">🤝</div>
+        <h4>Trato Personalizado</h4>
+        <p>Atención directa con el operador, sin intermediarios ni call centers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="section-label">Contáctanos</div>
+    <h2 class="section-title">Estamos para Ayudarte</h2>
+    <div class="contacto-wrapper">
+      <div class="contacto-info">
+        <h3>Información de Contacto</h3>
+        <div class="contacto-dato">
+          <span class="contacto-dato-icon">📞</span>
+          <div class="contacto-dato-text">
+            <strong>Teléfono / WhatsApp</strong>
+            <span>+56 9 4402 5683</span>
+          </div>
+        </div>
+        <div class="contacto-dato">
+          <span class="contacto-dato-icon">🕐</span>
+          <div class="contacto-dato-text">
+            <strong>Horario de atención</strong>
+            <span>Abierto las 24 horas · 365 días</span>
+          </div>
+        </div>
+        <div class="contacto-dato">
+          <span class="contacto-dato-icon">📍</span>
+          <div class="contacto-dato-text">
+            <strong>Zona de cobertura</strong>
+            <span>La Serena, Coquimbo y toda la IV Región</span>
+          </div>
+        </div>
+      </div>
+      <div class="contacto-btns">
+        <a href="https://wa.me/56944025683?text=Hola%2C%20necesito%20asistencia%20con%20mi%20veh%C3%ADculo" class="btn-wa">
+          💬 Escribir por WhatsApp
+        </a>
+        <a href="tel:+56944025683" class="btn-llamar">
+          📞 Llamar ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>GRÚAS V.C.A.</strong>
+    Servicio de remolque y auxilio vehicular · La Serena & Coquimbo, Chile<br>
+    📞 +56 9 4402 5683 · Disponible 24 horas, 365 días
+  </footer>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a href="https://wa.me/56944025683?text=Hola%2C%20necesito%20asistencia%20con%20mi%20veh%C3%ADculo" class="wa-float" title="WhatsApp">💬</a>
+
+</body>
+</html>
